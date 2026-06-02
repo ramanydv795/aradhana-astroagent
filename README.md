@@ -145,7 +145,7 @@ GROQ_API_KEY=your_groq_api_key
 
 ### Frontend `.env`
 ```
-VITE_API_URL=http://localhost:8000
+VITE_API_URL=(https://aradhana-astroagent.onrender.com)
 ```
 
 ---
