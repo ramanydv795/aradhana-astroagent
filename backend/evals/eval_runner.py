@@ -2,10 +2,14 @@ import json
 import time
 import csv
 import os
-from datetime import datetime
-from groq import Groq
 import sys
-sys.path.append("../app")
+from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'app'))
+
+from groq import Groq
 from graph import astro_graph
 from langchain_core.messages import HumanMessage
 
@@ -80,7 +84,7 @@ Respond ONLY with JSON:
 
     try:
         completion = client.chat.completions.create(
-            model="llama3-8b-8192",
+          model="llama-3.1-8b-instant",
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
             max_tokens=100
@@ -95,7 +99,7 @@ def run_evaluation():
     print("\n✨ Aradhana AstroAgent Evaluation Suite ✨")
     print("=" * 60)
 
-    golden_set = load_golden_set("golden_set.jsonl")
+    golden_set = load_golden_set(os.path.join(os.path.dirname(__file__), "golden_set.jsonl"))
     results = []
     scorecard = []
 
