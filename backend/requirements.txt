@@ -1,0 +1,9 @@
+langgraph
+langchain-groq
+langchain-core
+fastapi
+uvicorn
+pyswisseph
+geopy
+python-dotenv
+groq
